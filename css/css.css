@@ -1,9 +1,9 @@
 :root {
-    --background-card: #f2e0cf;
-    --background-page: #854628;
-    --question-box: #7c7458;
-    --viewed: #2d2d23;
-    --letters: #2d2d23;
+    --background-card: #757575;
+    --background-page: #2d2d2d;
+    --question-box: #555555;
+    --viewed: #aaaaaa;
+    --letters: #f0f0f0;
     --white: #f4f3e6;
     --black: #000;
 
@@ -12,9 +12,11 @@
 
 /*global format*/
 html {
+    color-scheme: light dark;
     box-sizing: border-box;
     font-size: 62.5%;
     background-color: var(--background-page);
+    color: var(--letters);
 }
 
 *, *:before, *:after {
@@ -30,12 +32,22 @@ body {
 
 footer {
     text-align: center;
+    font-size: 2rem;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+}
+
+.footer {
+    margin: 0; /* Elimina márgenes exteriores */
+    padding: 0.5rem 0; /* Reduce el espaciado interno */
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
 }
 
 .card-main {
-    -webkit-box-shadow: -5px 5px 20px 2px rgba(64,63,64,0.8);
-    -moz-box-shadow: -5px 5px 20px 2px rgba(64,63,64,0.8);
-    box-shadow: -5px 5px 20px 2px rgba(64,63,64,0.8);
+    -webkit-box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.7);
+    -moz-box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.7);
     background-color: var(--background-card);
     padding: 4rem; /*inside*/
     margin: 15rem; /*outside*/
@@ -50,9 +62,15 @@ h1 {
     font-size: 3rem;
     color: var(--letters);
 }
+.card-main h1 {
+    color: var(--letters);
+    font-size: 3rem;
+    color: var(--letters);
+}
 
 h2 {
     font-size: 1.6rem;
+    color: var(--letters);
 }
 
 /* questions */
@@ -71,19 +89,81 @@ h2 {
 }
 
 .question:hover {
-    background: var(--viewed);
+    background: var(--background-card);
+    -webkit-box-shadow: 0 0 10px 2px rgba(255,255,255,0.8);
+    -moz-box-shadow: 0 0 10px 2px rgba(255,255,255,0.8);
+    box-shadow: 0 0 10px 2px rgba(255,255,255,0.8);
 }
 .question:hover h2 {
-    color: var(--white);
+    color: var(--letters);
 }
 
 .answer {
+    font-size: 1.6rem; /* Ajusta el tamaño del texto (proporcional al diseño) */
+    line-height: 2rem; /* Mejora la legibilidad con mayor altura de línea */
     max-height: 0;
     overflow: hidden;
-    transition:max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
     padding-left: 2rem;
+    padding-inline-end: 5rem;
 }
 
 .toggle:checked + .question + .answer {
     max-height: 10rem;
+    -webkit-box-shadow: 0 0 15px 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0 0 15px 5px rgba(255,255,255,1);
+    box-shadow: 0 0 15px 5px rgba(255,255,255,1);
+}
+
+@media (max-width: 768px) { /* Para tablets y dispositivos móviles */
+    .card-main {
+        padding: 2rem; /* Reduce el padding interno */
+        margin: 5rem; /* Reduce el margen externo */
+    }
+
+    h1 {
+        font-size: 2rem; /* Reduce el tamaño de los títulos */
+    }
+
+    h2 {
+        font-size: 1.4rem; /* Ajusta el tamaño de subtítulos */
+    }
+
+    .answer {
+        font-size: 1.2rem; /* Hace más pequeño el texto en móviles */
+        line-height: 1.6rem; /* Ajusta la altura de las líneas */
+    }
+
+    .question {
+        padding: 0.8rem; /* Reduce el padding interno */
+        font-size: 1.2rem; /* Ajusta el tamaño del texto de las preguntas */
+    }
+
+    .footer {
+        padding: 0.5rem; /* Reduce el tamaño del recuadro del footer */
+        font-size: 1.8rem; /* Escala ligeramente la fuente si necesario */
+    }
+}
+
+@media (max-width: 480px) { /* Para pantallas pequeñas (teléfonos) */
+    .card-main {
+        padding: 1rem; /* Reduce aún más el padding en tarjetas */
+        margin: 2rem; /* Reduce los márgenes alrededor */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Compacta títulos principales */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Compacta subtítulos */
+    }
+
+    .question {
+        font-size: 1.1rem; /* Hace más pequeño el texto de las preguntas */
+    }
+
+    .footer {
+        padding: 0.3rem; /* Reduce el tamaño del recuadro en footer */
+    }
 }
