@@ -1,60 +1,96 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FAQs card</title>
+    <title>FAQs Card - Preguntas Frecuentes</title>
     <link rel="stylesheet" href="css/normalize.css">
+
+    <!-- Tipografía Muara -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+          rel="stylesheet">
+
+    <!-- Iconos Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="preload" href="css/css.css" as="style">
     <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
-    <main class="card-main"> <!--tarjeta de faqs-->
-        <header>
-            <h1 class="h1" style="font-size: 2.5rem;"> Frequent Asked Questions </h1>
+<div class="container">
+    <main class="card-main">
+        <header class="header-section">
+            <div class="icon-container">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <h1 class="main-title">Preguntas Frecuentes</h1>
+            <p class="subtitle">Encuentra respuestas a las consultas más comunes</p>
         </header>
 
-        <div class="faqs"> <!--pregunta 1-->
-            <input type="checkbox" id="quest1" class="toggle">>
-            <label for="quest1" class="question">
-                <h2 style="font-size: 2rem;"> Pregunta </h2>
-            </label>
-            <p class="answer"> <!--Respuesta -->
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque nibh eget massa lobortis, sit amet porttitor est vulputate.
-                Etiam vel ex posuere, condimentum metus vel, ullamcorper lectus. Praesent gravida quam aliquam nibh dapibus finibus. Mauris efficitur
-                libero id placerat gravida. Aenean molestie in quam eu eleifend. Nunc ut augue ipsum. Curabitur molestie ullamcorper neque, eleifend
-                pulvinar diam mattis quis. Fusce ut elit facilisis, sollicitudin ex sit amet, venenatis lorem. Fusce convallis cursus felis, nec volutpat
-                nisl pellentesque consequat. Morbi maximus, erat sed eleifend dictum, nisl risus faucibus tellus, eu bibendum est quam quis lorem.
-                Pellentesque commodo egestas mi, id placerat eros venenatis mattis. Sed non dui dolor. In hac habitasse platea dictumst.\n
-                Suspendisse ut volutpat lorem, vitae auctor est. In nec nisl quis augue eleifend aliquet. Ut mollis quam non libero congue bibendum. Nunc ultrices velit massa, et elementum augue volutpat quis. Donec finibus dolor eu enim varius aliquam. Morbi rutrum blandit ligula id suscipit. Integer ultricies tempor auctor. Phasellus nunc odio, bibendum vitae turpis eu, ornare finibus lacus. Aenean in varius purus, id rutrum ante. /n Suspendisse sit amet aliquam est. Donec cursus turpis id vestibulum venenatis. Aliquam aliquet congue libero et viverra. In et metus et arcu tristique vulputate.
+        <div class="faqs-container">
+            <div class="faq-item" data-faq="1">
+                <input type="checkbox" id="quest1" class="toggle">
+                <label for="quest1" class="question">
+                    <h2>¿Cómo puedo crear una cuenta?</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </label>
+                <div class="answer">
+                    <p>Para crear una cuenta, simplemente haz clic en el botón "Registrarse" en la parte superior
+                        derecha de la página. Completa el formulario con tu información personal y verifica tu correo
+                        electrónico. El proceso es rápido y seguro.</p>
+                </div>
+            </div>
 
-            </p>
+            <div class="faq-item" data-faq="2">
+                <input type="checkbox" id="quest2" class="toggle">
+                <label for="quest2" class="question">
+                    <h2>¿Qué métodos de pago aceptan?</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </label>
+                <div class="answer">
+                    <p>Aceptamos una amplia variedad de métodos de pago incluyendo tarjetas de crédito y débito (Visa,
+                        MasterCard, American Express), PayPal, transferencias bancarias y pagos móviles. Todos los pagos
+                        son procesados de forma segura.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-faq="3">
+                <input type="checkbox" id="quest3" class="toggle">
+                <label for="quest3" class="question">
+                    <h2>¿Cuál es la política de devoluciones?</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </label>
+                <div class="answer">
+                    <p>Ofrecemos un período de devolución de 30 días para todos nuestros productos. Los artículos deben
+                        estar en su estado original y sin usar. El proceso de devolución es sencillo y el reembolso se
+                        procesa dentro de 5-7 días hábiles.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-faq="4">
+                <input type="checkbox" id="quest4" class="toggle">
+                <label for="quest4" class="question">
+                    <h2>¿Cómo puedo contactar al soporte técnico?</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </label>
+                <div class="answer">
+                    <p>Nuestro equipo de soporte está disponible 24/7. Puedes contactarnos a través del chat en vivo,
+                        enviar un ticket de soporte desde tu cuenta, llamarnos al teléfono de atención al cliente, o
+                        enviarnos un correo electrónico. Respondemos en menos de 2 horas.</p>
+                </div>
+            </div>
         </div>
-
-        <div class="faqs"> <!--pregunta 2-->
-            <input type="checkbox" id="quest2" class="toggle">>
-            <label for="quest2" class="question">
-                <h2 style="font-size: 2rem;"> Pregunta </h2>
-            </label>
-            <p class="answer"> <!--Respuesta -->
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque nibh eget massa lobortis, sit amet porttitor est vulputate. Etiam vel ex posuere, condimentum metus vel, ullamcorper lectus. Praesent gravida quam aliquam nibh dapibus finibus. Mauris efficitur libero id placerat gravida. Aenean molestie in quam eu eleifend. Nunc ut augue ipsum. Curabitur molestie ullamcorper neque, eleifend pulvinar diam mattis quis. Fusce ut elit facilisis, sollicitudin ex sit amet, venenatis lorem. Fusce convallis cursus felis, nec volutpat nisl pellentesque consequat. Morbi maximus, erat sed eleifend dictum, nisl risus faucibus tellus, eu bibendum est quam quis lorem. Pellentesque commodo egestas mi, id placerat eros venenatis mattis. Sed non dui dolor. In hac habitasse platea dictumst.
-            </p>
-        </div>
-
-        <div class="faqs"> <!--pregunta 3-->
-            <input type="checkbox" id="quest3" class="toggle">>
-            <label for="quest3" class="question">
-                <h2 style="font-size: 2rem;"> Pregunta </h2>
-            </label>
-            <p class="answer"> <!--Respuesta -->
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque nibh eget massa lobortis, sit amet porttitor est vulputate. Etiam vel ex posuere, condimentum metus vel, ullamcorper lectus. Praesent gravida quam aliquam nibh dapibus finibus. Mauris efficitur libero id placerat gravida. Aenean molestie in quam eu eleifend. Nunc ut augue ipsum. Curabitur molestie ullamcorper neque, eleifend pulvinar diam mattis quis. Fusce ut elit facilisis, sollicitudin ex sit amet, venenatis lorem. Fusce convallis cursus felis, nec volutpat nisl pellentesque consequat. Morbi maximus, erat sed eleifend dictum, nisl risus faucibus tellus, eu bibendum est quam quis lorem. Pellentesque commodo egestas mi, id placerat eros venenatis mattis. Sed non dui dolor. In hac habitasse platea dictumst.
-            </p>
-        </div>
-
     </main>
-    <footer class="footer"> <p> All rights reserved © 2026 </p> </footer>
+
+    <footer class="footer">
+        <p><i class="fas fa-copyright"></i> 2024 - Todos los derechos reservados</p>
+    </footer>
+</div>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/animations.js"></script>
 </body>
 </html>

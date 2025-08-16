@@ -1,169 +1,433 @@
 :root {
-    --background-card: #757575;
-    --background-page: #2d2d2d;
-    --question-box: #555555;
-    --viewed: #aaaaaa;
-    --letters: #f0f0f0;
-    --white: #f4f3e6;
-    --black: #000;
+    /* Nueva paleta de colores */
+    --primary-color: #F1C775; /* Amarillo */
+    --secondary-color: #A7D0D2; /* Azul Claro */
+    --background-color: #F1E6D2; /* Fondo */
+    --accent-color: #546EAB; /* Azul Marino */
 
-    --mainfont: "Oswald", sans-serif;
-} /*color palette and font*/
+    /* Colores de texto */
+    --text-primary: #2c2c2c;
+    --text-secondary: #5a5a5a;
+    --text-light: #ffffff;
 
-/*global format*/
-html {
-    color-scheme: light dark;
-    box-sizing: border-box;
-    font-size: 62.5%;
-    background-color: var(--background-page);
-    color: var(--letters);
+    /* Sombras para neomorfismo */
+    --shadow-light: #ffffff;
+    --shadow-dark: #d1c7b8;
+    --shadow-inset-light: inset 8px 8px 16px #d1c7b8, inset -8px -8px 16px #ffffff;
+    --shadow-outset: 8px 8px 16px #d1c7b8, -8px -8px 16px #ffffff;
+    --shadow-pressed: inset 4px 4px 8px #d1c7b8, inset -4px -4px 8px #ffffff;
+
+    /* Tipografía */
+    --main-font: "Crimson Text", serif;
+
+    /* Transiciones */
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
+/* Reset y configuración global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
-    line-height: 1.5;
-    font-family: var(--mainfont);
+    font-family: var(--main-font);
+    background: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor principal */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
 }
 
-footer {
-    text-align: center;
-    font-size: 2rem;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-}
-
-.footer {
-    margin: 0; /* Elimina márgenes exteriores */
-    padding: 0.5rem 0; /* Reduce el espaciado interno */
-    text-align: center;
-    font-size: 2rem;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-}
-
+/* Tarjeta principal con neomorfismo */
 .card-main {
-    -webkit-box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.7);
-    -moz-box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.7);
-    box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.7);
-    background-color: var(--background-card);
-    padding: 4rem; /*inside*/
-    margin: 15rem; /*outside*/
-    border-radius: 2rem;
+    background: var(--background-color);
+    border-radius: 3rem;
+    padding: 4rem;
+    max-width: 80rem;
+    width: 100%;
+    box-shadow: var(--shadow-outset);
+    position: relative;
+    transition: var(--transition-smooth);
+    animation: fadeInUp 0.8s ease-out;
 }
 
-.card-main h1 {
+.card-main:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 24px #d1c7b8, -12px -12px 24px #ffffff;
+}
+
+/* Header section */
+.header-section {
     text-align: center;
-    margin-bottom: 2rem;
-}
-h1 {
-    font-size: 3rem;
-    color: var(--letters);
-}
-.card-main h1 {
-    color: var(--letters);
-    font-size: 3rem;
-    color: var(--letters);
+    margin-bottom: 4rem;
+    position: relative;
 }
 
-h2 {
-    font-size: 1.6rem;
-    color: var(--letters);
+.icon-container {
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto 2rem;
+    background: var(--background-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-outset);
+    transition: var(--transition-bounce);
 }
 
-/* questions */
+.icon-container:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: var(--shadow-pressed);
+}
+
+.icon-container i {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    transition: var(--transition-smooth);
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideInFromLeft 0.8s ease-out 0.2s both;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    animation: slideInFromRight 0.8s ease-out 0.4s both;
+}
+
+/* Contenedor de FAQs */
+.faqs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Items de FAQ con neomorfismo */
+.faq-item {
+    background: var(--background-color);
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-outset);
+    transition: var(--transition-smooth);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.faq-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.faq-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.faq-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.faq-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 10px 10px 20px #d1c7b8, -10px -10px 20px #ffffff;
+}
+
+/* Toggle oculto */
 .toggle {
     display: none;
 }
 
+/* Pregunta */
 .question {
-    display: block;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem;
     cursor: pointer;
-    background: var(--question-box);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    transition: backround 0.5s;
+    background: linear-gradient(145deg, var(--primary-color), #e6b566);
+    border-radius: 2rem;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.question::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.question:hover::before {
+    left: 100%;
 }
 
 .question:hover {
-    background: var(--background-card);
-    -webkit-box-shadow: 0 0 10px 2px rgba(255,255,255,0.8);
-    -moz-box-shadow: 0 0 10px 2px rgba(255,255,255,0.8);
-    box-shadow: 0 0 10px 2px rgba(255,255,255,0.8);
-}
-.question:hover h2 {
-    color: var(--letters);
+    background: linear-gradient(145deg, #f5d085, var(--primary-color));
+    box-shadow: var(--shadow-pressed);
+    transform: scale(0.98);
 }
 
+.question h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.toggle-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    transition: var(--transition-bounce);
+    background: var(--background-color);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-outset);
+}
+
+/* Respuesta */
 .answer {
-    font-size: 1.6rem; /* Ajusta el tamaño del texto (proporcional al diseño) */
-    line-height: 2rem; /* Mejora la legibilidad con mayor altura de línea */
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
-    padding-left: 2rem;
-    padding-inline-end: 5rem;
+    background: var(--secondary-color);
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0 0 2rem 2rem;
+}
+
+.answer p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0 2.5rem;
+}
+
+/* Estado activo */
+.toggle:checked + .question {
+    background: linear-gradient(145deg, var(--accent-color), #4a5f96);
+    border-radius: 2rem 2rem 0 0;
+}
+
+.toggle:checked + .question h2 {
+    color: var(--text-light);
+}
+
+.toggle:checked + .question .toggle-icon {
+    transform: rotate(180deg);
+    background: var(--primary-color);
+    color: var(--text-primary);
 }
 
 .toggle:checked + .question + .answer {
-    max-height: 10rem;
-    -webkit-box-shadow: 0 0 15px 5px rgba(255,255,255,1);
-    -moz-box-shadow: 0 0 15px 5px rgba(255,255,255,1);
-    box-shadow: 0 0 15px 5px rgba(255,255,255,1);
+    max-height: 20rem;
+    padding: 2.5rem 0;
+    box-shadow: var(--shadow-inset-light);
 }
 
-@media (max-width: 768px) { /* Para tablets y dispositivos móviles */
+/* Footer */
+.footer {
+    margin-top: 4rem;
+    text-align: center;
+    padding: 2rem;
+    background: var(--background-color);
+    border-radius: 2rem;
+    box-shadow: var(--shadow-outset);
+    transition: var(--transition-smooth);
+}
+
+.footer p {
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer i {
+    color: var(--accent-color);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
     .card-main {
-        padding: 2rem; /* Reduce el padding interno */
-        margin: 5rem; /* Reduce el margen externo */
+        padding: 3rem 2rem;
+        border-radius: 2rem;
+        margin: 1rem;
     }
 
-    h1 {
-        font-size: 2rem; /* Reduce el tamaño de los títulos */
+    .main-title {
+        font-size: 3rem;
     }
 
-    h2 {
-        font-size: 1.4rem; /* Ajusta el tamaño de subtítulos */
-    }
-
-    .answer {
-        font-size: 1.2rem; /* Hace más pequeño el texto en móviles */
-        line-height: 1.6rem; /* Ajusta la altura de las líneas */
+    .subtitle {
+        font-size: 1.6rem;
     }
 
     .question {
-        padding: 0.8rem; /* Reduce el padding interno */
-        font-size: 1.2rem; /* Ajusta el tamaño del texto de las preguntas */
+        padding: 2rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
     }
 
-    .footer {
-        padding: 0.5rem; /* Reduce el tamaño del recuadro del footer */
-        font-size: 1.8rem; /* Escala ligeramente la fuente si necesario */
+    .question h2 {
+        font-size: 1.8rem;
+        padding-right: 0;
+    }
+
+    .toggle-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.8rem;
+    }
+
+    .answer p {
+        font-size: 1.4rem;
+        padding: 0 2rem;
+    }
+
+    .icon-container {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .icon-container i {
+        font-size: 2.5rem;
     }
 }
 
-@media (max-width: 480px) { /* Para pantallas pequeñas (teléfonos) */
+@media (max-width: 480px) {
     .card-main {
-        padding: 1rem; /* Reduce aún más el padding en tarjetas */
-        margin: 2rem; /* Reduce los márgenes alrededor */
+        padding: 2rem 1.5rem;
+        border-radius: 1.5rem;
     }
 
-    h1 {
-        font-size: 1.8rem; /* Compacta títulos principales */
+    .main-title {
+        font-size: 2.5rem;
     }
 
-    h2 {
-        font-size: 1.2rem; /* Compacta subtítulos */
+    .subtitle {
+        font-size: 1.4rem;
     }
 
     .question {
-        font-size: 1.1rem; /* Hace más pequeño el texto de las preguntas */
+        padding: 1.5rem;
+        border-radius: 1.5rem;
     }
 
-    .footer {
-        padding: 0.3rem; /* Reduce el tamaño del recuadro en footer */
+    .question h2 {
+        font-size: 1.6rem;
+    }
+
+    .answer p {
+        font-size: 1.3rem;
+        padding: 0 1.5rem;
+    }
+
+    .toggle:checked + .question + .answer {
+        max-height: 25rem;
+    }
+
+    .faqs-container {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .card-main {
+        padding: 1.5rem 1rem;
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .question h2 {
+        font-size: 1.4rem;
+    }
+
+    .answer p {
+        font-size: 1.2rem;
     }
 }
